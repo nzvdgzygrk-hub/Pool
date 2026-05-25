@@ -3,276 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Schwimmbad Aufsicht & Pool-Anleitung</title>
+<title>Pool Aufbau & Sandfilter-Anleitung</title>
 
 <style>
-:root{
-  --bg:#eef4fb;
-  --card:#ffffff;
-  --text:#1f2937;
-  --muted:#64748b;
-  --blue:#0b5cad;
-  --line:#d7e0ec;
-  --warn:#fff7e6;
-}
-*{box-sizing:border-box}
 body{
   font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;
-  background:var(--bg);
+  background:#eef4fb;
   margin:0;
-  color:var(--text);
+  color:#1f2937;
 }
 header{
-  background:linear-gradient(135deg,#07549b,#0f75bd);
+  background:#0b5cad;
   color:white;
   padding:22px 14px;
   text-align:center;
 }
-header h1{margin:0;font-size:28px}
-header p{margin:8px 0 0;color:#eaf4ff}
-
-nav{
-  display:flex;
-  gap:8px;
-  overflow:auto;
-  padding:10px;
-  background:#0b5cad;
-  position:sticky;
-  top:0;
-  z-index:2;
-}
-nav a{
-  color:white;
-  text-decoration:none;
-  background:rgba(255,255,255,.14);
-  padding:9px 12px;
-  border-radius:999px;
-  white-space:nowrap;
-}
-
 main{
-  max-width:1100px;
+  max-width:1000px;
   margin:auto;
   padding:14px;
 }
-
-.section{
-  background:var(--card);
-  border:1px solid var(--line);
+section{
+  background:white;
   border-radius:16px;
   padding:14px;
   margin:14px 0;
-  box-shadow:0 8px 22px rgba(15,23,42,.06);
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
 }
-
-h2{
-  color:#0b3f75;
-  margin:0 0 12px;
-  font-size:22px;
-}
-
-h3{
-  margin:16px 0 8px;
-  color:#23324a;
-}
-
-.kid{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px;
-  border-bottom:1px solid #ddd;
-  font-size:18px;
-}
-.kid:last-child{border-bottom:none}
-
-input[type="checkbox"]{
-  width:26px;
-  height:26px;
-}
-
-.time,.counter{
-  text-align:center;
-  font-size:20px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-button{
+h2{color:#0b3f75}
+img{
   width:100%;
-  padding:12px;
-  font-size:18px;
+  height:auto;
   border-radius:10px;
-  border:none;
-  background:#007aff;
-  color:white;
-  margin-top:8px;
+  border:1px solid #ddd;
 }
-
-.car{
-  font-size:16px;
-  margin-top:6px;
-}
-
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:12px;
 }
-
-figure{
-  margin:0;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:9px;
-}
-
-img{
-  max-width:100%;
-  height:auto;
-  border-radius:10px;
-  display:block;
-}
-
-figcaption{
-  font-size:14px;
-  color:var(--muted);
-  margin-top:7px;
-}
-
 .notice{
-  background:var(--warn);
+  background:#fff7e6;
   border:1px solid #ffd98a;
   border-radius:12px;
   padding:10px;
-  margin:10px 0;
 }
-
 table{
   width:100%;
   border-collapse:collapse;
-  margin-top:8px;
 }
-
-th,td{
-  border:1px solid var(--line);
+td,th{
+  border:1px solid #ddd;
   padding:9px;
-  vertical-align:top;
   text-align:left;
 }
-
-th{
-  background:#eef4ff;
-  color:#15345b;
-}
-
-ul,ol{
-  padding-left:22px;
-}
-li{
-  margin:6px 0;
-}
-
-@media print{
-  nav,button{display:none}
-  .section{
-    break-inside:avoid;
-    box-shadow:none;
-  }
-  body{
-    background:white;
-  }
-}
+th{background:#eef4ff}
 </style>
 </head>
+
 <body>
 
 <header>
-  <h1>🏊 Schwimmbad & Pool-Anleitung</h1>
-  <p>Aufsicht, Mitfahrliste, Pool-Aufbau und Sandfilterpumpe</p>
+<h1>Pool Aufbau & Sandfilter-Anleitung</h1>
+<p>Pool-Plan, Stützenanordnung und Pumpenfunktionen</p>
 </header>
-
-<nav>
-  <a href="#aufsicht">Aufsicht</a>
-  <a href="#poolplan">Pool-Plan</a>
-  <a href="#stuetzen">Stützen</a>
-  <a href="#pumpe">Pumpe starten</a>
-  <a href="#funktionen">Ventilfunktionen</a>
-</nav>
 
 <main>
 
-<section id="aufsicht" class="section">
-<h2>🏊 Schwimmbad Aufsicht & 🚗 Mitfahrliste</h2>
-
-<div class="section">
-<h2>Kinder dabei</h2>
-<div class="counter">Anzahl: <span id="totalCount">0</span></div>
-<div id="kidSelect"></div>
-</div>
-
-<div class="section">
-<h2>🚗 Auto-Generator</h2>
-<button onclick="generateCars()">🔁 Namen neu generieren</button>
-<div id="cars"></div>
-</div>
-
-<div id="checklists"></div>
-</section>
-
-<section id="poolplan" class="section">
+<section>
 <h2>Pool-Plan</h2>
-<figure>
-<img src="pool-plan.png" alt="">
-</figure>
+<img src="pool-plan.png" alt="Pool Plan">
 </section>
 
-<section id="stuetzen" class="section">
-<h2>Stützenanordnung</h2>
-<figure>
-<img src="stuetzenanordnung-herstellerplan.jpg" alt="">
-</figure>
+<section>
+<h2>Stützenanordnung gemäß Herstellerplan</h2>
+<img src="stuetzenanordnung-herstellerplan.jpg" alt="Stützenanordnung">
 </section>
 
-<section id="pumpe" class="section">
+<section>
 <h2>Sandfilterpumpe in Betrieb nehmen</h2>
 
 <div class="notice">
-Wichtig: Ventil nur umstellen wenn Pumpe AUS ist.
+Wichtig: Ventil nur umstellen, wenn die Pumpe ausgeschaltet ist. Pumpe niemals ohne Wasser laufen lassen.
 </div>
 
 <ol>
 <li>Pool mit Wasser füllen.</li>
 <li>Schläuche korrekt anschließen.</li>
-<li>Sandfilter befüllen.</li>
-<li>Luft ablassen bis Wasser aus Anschluss D kommt.</li>
-<li>Ventil auf Rückspülen.</li>
+<li>Sandfilter mit geeignetem Filtermedium befüllen.</li>
+<li>Luft ablassen, bis Wasser aus Anschluss D kommt.</li>
+<li>Ventil auf Rückspülen / Ausspülen stellen.</li>
 <li>Pumpe 3–5 Minuten laufen lassen.</li>
-<li>Pumpe aus.</li>
-<li>Ventil auf Spülen.</li>
-<li>1 Minute laufen lassen.</li>
-<li>Pumpe aus.</li>
-<li>Ventil auf Filtern.</li>
-<li>Normalbetrieb starten.</li>
+<li>Pumpe ausschalten.</li>
+<li>Ventil auf Spülen stellen.</li>
+<li>Pumpe ca. 1 Minute laufen lassen.</li>
+<li>Pumpe ausschalten.</li>
+<li>Ventil auf Filtern stellen.</li>
+<li>Pumpe einschalten. Jetzt läuft der normale Filterbetrieb.</li>
 </ol>
-
-<div class="grid">
-<figure>
-<img src="steuerungsventil-uebersicht.jpg" alt="">
-</figure>
-
-<figure>
-<img src="steuerungsventil-funktionen.jpg" alt="">
-</figure>
-
-<figure>
-<img src="inbetriebnahme-rcd-luft.jpg" alt="">
-</figure>
-</div>
 </section>
 
-<section id="funktionen" class="section">
+<section>
 <h2>Ventilfunktionen</h2>
 
 <table>
@@ -280,153 +111,44 @@ Wichtig: Ventil nur umstellen wenn Pumpe AUS ist.
 <th>Funktion</th>
 <th>Erklärung</th>
 </tr>
-
 <tr>
 <td>Filtern</td>
-<td>Normaler Betrieb</td>
+<td>Normaler Betrieb. Wasser läuft durch den Sandfilter zurück in den Pool.</td>
 </tr>
-
 <tr>
 <td>Geschlossen</td>
-<td>Wasserfluss gestoppt</td>
+<td>Wasserfluss wird gestoppt. Nicht bei laufender Pumpe benutzen.</td>
 </tr>
-
 <tr>
-<td>Rückspülen</td>
-<td>Filter reinigen</td>
+<td>Ausspülen / Rückspülen</td>
+<td>Filter wird gereinigt. Schmutzwasser läuft über Anschluss D heraus.</td>
 </tr>
-
 <tr>
 <td>Spülen</td>
-<td>Nach Rückspülen</td>
+<td>Nach dem Rückspülen kurz spülen, damit sich das Sandbett setzt.</td>
 </tr>
-
 <tr>
 <td>Ablassen</td>
-<td>Wasser abpumpen</td>
+<td>Wasser wird aus dem Pool abgepumpt.</td>
 </tr>
-
 <tr>
 <td>Umwälzen</td>
-<td>Ohne Filterbetrieb</td>
+<td>Wasser wird bewegt, aber nicht gefiltert.</td>
 </tr>
 </table>
 </section>
 
+<section>
+<h2>Bilder aus der Anleitung</h2>
+
+<div class="grid">
+<img src="steuerungsventil-uebersicht.jpg" alt="Steuerungsventil Übersicht">
+<img src="steuerungsventil-funktionen.jpg" alt="Steuerungsventil Funktionen">
+<img src="inbetriebnahme-rcd-luft.jpg" alt="Inbetriebnahme RCD Luft">
+</div>
+</section>
+
 </main>
-
-<script>
-const kids = [
-"Aos","Ahmet","Efe","David","Kiril","Semih","Jonas","Jannik",
-"Julian","Elias","Mario","Flitzer","Paul","Noel","Piot","Malik"
-];
-
-const times = [
-"10:00","10:30","11:00","11:30","12:00","12:30",
-"13:00","13:30","14:00","14:30","15:00","15:30",
-"16:00","16:30","17:00","17:30","18:00"
-];
-
-const storageKey = "schwimmbadAutoCheck";
-
-const data = JSON.parse(localStorage.getItem(storageKey)) || {
-selected:{},
-checks:{}
-};
-
-const selectDiv = document.getElementById("kidSelect");
-
-kids.forEach(kid=>{
-const checked = data.selected[kid] ? "checked" : "";
-selectDiv.innerHTML += `
-<div class="kid">
-<span>${kid}</span>
-<input type="checkbox" ${checked}
-onchange="toggleKid('${kid}',this.checked)">
-</div>`;
-});
-
-function toggleKid(kid,val){
-data.selected[kid]=val;
-localStorage.setItem(storageKey,JSON.stringify(data));
-render();
-}
-
-function saveCheck(time,kid,val){
-if(!data.checks[time]) data.checks[time]={};
-data.checks[time][kid]=val;
-localStorage.setItem(storageKey,JSON.stringify(data));
-}
-
-function render(){
-document.getElementById("totalCount").innerText =
-Object.values(data.selected).filter(v=>v).length;
-
-const container = document.getElementById("checklists");
-container.innerHTML="";
-
-times.forEach(time=>{
-const sec=document.createElement("div");
-sec.className="section";
-
-let html=`<div class="time">${time}</div>`;
-
-kids.filter(k=>data.selected[k]).forEach(kid=>{
-const checked = data.checks?.[time]?.[kid] ? "checked" : "";
-
-html += `
-<div class="kid">
-<span>${kid}</span>
-<input type="checkbox" ${checked}
-onchange="saveCheck('${time}','${kid}',this.checked)">
-</div>`;
-});
-
-sec.innerHTML=html;
-container.appendChild(sec);
-});
-}
-
-function shuffle(array){
-for(let i=array.length-1;i>0;i--){
-const j=Math.floor(Math.random()*(i+1));
-[array[i],array[j]]=[array[j],array[i]];
-}
-}
-
-function generateCars(){
-const active = kids.filter(k=>data.selected[k]);
-
-let car1=["Efe"];
-let car2=["Jannik","Julian"];
-let car3=["Jonas"];
-
-let rest = active.filter(k =>
-!car1.includes(k) &&
-!car2.includes(k) &&
-!car3.includes(k)
-);
-
-shuffle(rest);
-
-rest.forEach(k=>{
-const smallest=[car1,car2,car3].sort((a,b)=>a.length-b.length)[0];
-smallest.push(k);
-});
-
-document.getElementById("cars").innerHTML=`
-<div class="car"><strong>Auto Efe:</strong> ${car1.join(", ")}</div>
-<div class="car"><strong>Auto Jannik & Julian:</strong> ${car2.join(", ")}</div>
-<div class="car"><strong>Auto Jonas:</strong> ${car3.join(", ")}</div>
-`;
-}
-
-render();
-
-setInterval(()=>{
-alert("⏰ Kontrolle: Kinder abhaken!");
-},30*60*1000);
-</script>
 
 </body>
 </html>
